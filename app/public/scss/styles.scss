@@ -1,0 +1,45 @@
+img{
+    width: 100%;
+    vertical-align: middle;
+}
+body{
+    header{
+        display: flex;
+        justify-content: space-between;
+        box-shadow : 1px 1px 1px rgba(0, 0, 0, 0.14);
+        padding: 5px;
+        margin-inline: 5px;
+        border-radius: 10px 5px;
+        a img {
+            width: 80px;
+            border-radius: 50%;
+        }
+        nav{
+            display: none;
+            background-color: rgba(0, 0, 0, 0.16);
+            width: 50%;
+            border-radius: 10px;
+            position: absolute;
+            right: 0;
+            ul{
+                list-style: none;
+                li{
+                    a{
+                        text-decoration: none;
+                    }
+                }
+            }
+            button{
+                border: none;
+                background-color: lightblue;
+                border-radius: 50%;
+                position: inherit;
+                top: 5px;
+                left: 5px;
+            }
+        }
+        #burger, #switch-theme{
+            cursor: pointer;
+        }
+    }
+}

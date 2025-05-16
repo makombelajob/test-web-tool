@@ -1,0 +1,37 @@
+services:
+  php:
+    build:
+      context: ./php
+    container_name: ethical_web_pa
+    ports:
+      - 8080:80
+    volumes:
+      - ./app:/var/www/html
+      - ./apache/default.conf:/etc/apache2/sites-enabled/000-default.conf
+  database:
+    image: mysql:8.0
+    container_name: ethical_web_db
+    environment:
+      MYSQL_ROOT_PASSWORD: admin77911
+      MYSQL_DATABASE: ethical_web
+      MYSQL_USER: admin
+      MYSQL_PASSWORD: admin7791
+    volumes:
+      - ./mysql:/var/lib/mysql
+  
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: ethical_web_pma
+    environment:
+      PMA_HOST: database
+      PMA_PASSWORD: admin77911
+    ports:
+      - 8081:80
+    depends_on:
+      - database
+  
+  mailhog:
+    image: mailhog/mailhog
+    container_name: ethical_web_mail
+    ports:
+      - 8025:8025
